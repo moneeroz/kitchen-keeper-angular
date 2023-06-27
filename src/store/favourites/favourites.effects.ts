@@ -7,6 +7,7 @@ import { selectUser } from '../auth/auth.selectors';
 import { IappState } from '../iapp-state';
 import { FavouriteService } from 'src/app/services/favourite.service';
 import { FavouriteApiActions } from './favourites.actions';
+import { ToastrService } from 'ngx-toastr';
 // import { ToastService } from 'src/app/services/toast.service';
 
 @Injectable()
@@ -15,8 +16,8 @@ export class FavouritesEffects {
     private actions$: Actions,
     private store: Store<IappState>,
     private favouritesService: FavouriteService,
-  ) // private toastService: ToastService,
-  {}
+    private toastr: ToastrService,
+  ) {}
 
   getFavouriteItems$ = createEffect(() => {
     return this.actions$.pipe(
@@ -29,7 +30,13 @@ export class FavouritesEffects {
             FavouriteApiActions.getFavouritesSuccess({ items: items }),
           ),
           catchError((error) =>
-            of(FavouriteApiActions.getFavouriteFailure({ error })),
+            of(FavouriteApiActions.getFavouriteFailure({ error })).pipe(
+              tap(async () =>
+                this.toastr.error('Failed to load items!', '', {
+                  timeOut: 3000,
+                }),
+              ),
+            ),
           ),
         );
       }),
@@ -48,14 +55,21 @@ export class FavouritesEffects {
             map((item) =>
               FavouriteApiActions.addToFavouritesSuccess({ recipe: item }),
             ),
-            // tap(() =>
-            //   this.toastService.successToast(
-            //     'Added to favourites successfully!',
-            //   ),
-            // ),
+            tap(async () =>
+              this.toastr.success('Added to Favourites!', '', {
+                timeOut: 3000,
+              }),
+            ),
             catchError((error) => {
-              // this.toastService.failureToast('Item already in favourites!');
-              return of(FavouriteApiActions.addToFavouritesFailure({ error }));
+              return of(
+                FavouriteApiActions.addToFavouritesFailure({ error }),
+              ).pipe(
+                tap(async () => {
+                  this.toastr.error('Recipe already in favourites!', '', {
+                    timeOut: 3000,
+                  });
+                }),
+              );
             }),
           );
       }),
@@ -72,19 +86,22 @@ export class FavouritesEffects {
           .deleteFromFavourites(userId, action.recipeId)
           .pipe(
             map(() => FavouriteApiActions.removeFromFavouritesSuccess()),
-            // tap(() =>
-            //   this.toastService.successToast(
-            //     'Removed from favourites successfully!',
-            //   ),
-            // ),
-            catchError((error) => {
-              // this.toastService.failureToast(
-              //   'Failed to remove from favourites!',
-              // );
-              return of(
+            tap(async () =>
+              this.toastr.warning('Removed from favourites!', '', {
+                timeOut: 3000,
+              }),
+            ),
+            catchError((error) =>
+              of(
                 FavouriteApiActions.removeFromFavouritesFailure({ error }),
-              );
-            }),
+              ).pipe(
+                tap(async () => {
+                  this.toastr.error('Failed to remove from favourites!', '', {
+                    timeOut: 3000,
+                  });
+                }),
+              ),
+            ),
           );
       }),
     );

@@ -19,6 +19,8 @@ import { LoadingComponent } from './components/loading/loading.component';
 import { RecipeCardComponent } from './components/recipe-card/recipe-card.component';
 import { CustomFilterPipe } from './pipes/custom-filter.pipe';
 import { PipesModule } from './pipes/pipes.module';
+import { CategoriesComponent } from './pages/categories/categories.component';
+import { FavouritesComponent } from './pages/favourites/favourites.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { PipesModule } from './pipes/pipes.module';
     RegisterComponent,
     LoadingComponent,
     RecipeCardComponent,
+    CategoriesComponent,
+    FavouritesComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,13 @@
+<section class="container">
+  <p class="text-center pt-5 pb-4 heading">Your favourite recipes</p>
+
+  <div class="cards">
+    <app-recipe-card
+      *ngFor="let favourite of items$ | async"
+      [recipe]="favourite.recipe"
+      [showRemoveBtn]="true"
+      [showFavouriteBtn]="false"
+      (viewEvent)="onView($event)"
+    />
+  </div>
+</section>
