@@ -1,0 +1,25 @@
+<section class="container">
+  <div class="row d-flex justify-content-center align-items-center mt-5">
+    <form class="col-md-6">
+      <div class="form">
+        <input
+          [(ngModel)]="query"
+          name="query"
+          type="text"
+          class="form-control form-input"
+          placeholder="What would you like to cook?"
+        />
+      </div>
+    </form>
+  </div>
+
+  <p class="text-center py-5 heading">Explore All Recipes</p>
+
+  <div class="cards">
+    <app-recipe-card
+      *ngFor="let recipe of recipes$ | async | customFilter : query"
+      [recipe]="recipe"
+      (viewEvent)="onView($event)"
+    />
+  </div>
+</section>

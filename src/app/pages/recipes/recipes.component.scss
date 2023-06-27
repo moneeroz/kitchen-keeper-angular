@@ -1,0 +1,16 @@
+.form-input {
+  height: 55px;
+  text-indent: 20px;
+  border-radius: 10px;
+}
+
+.form-input:focus {
+  box-shadow: none;
+  border: 2px solid #3a98b9;
+}
+
+.heading {
+  font-size: 2em;
+  font-weight: 500;
+  font-family: "Saira Condensed", sans-serif;
+}
