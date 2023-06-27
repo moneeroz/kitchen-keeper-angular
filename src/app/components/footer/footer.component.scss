@@ -1,0 +1,42 @@
+footer {
+  background-color: #3a98b9;
+  font-family: "Saira Condensed", sans-serif;
+  font-weight: 600;
+  color: #fff;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+.copyright {
+  margin-top: 59px;
+}
+
+.copyright,
+.github {
+  font-weight: 500;
+}
+
+.catch_phrase {
+  color: #d8944b;
+}
+
+.phrase_container {
+  font-weight: 600;
+  font-size: 1.3em;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+.ref {
+  font-size: 1em;
+  font-weight: 400;
+}
+
+.gh_link:hover {
+  cursor: pointer;
+  color: #d8944b;
+}
