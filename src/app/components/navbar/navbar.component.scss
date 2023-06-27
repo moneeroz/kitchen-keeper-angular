@@ -1,0 +1,66 @@
+header {
+  background-color: #3a98b9;
+  font-family: "Saira Condensed", sans-serif;
+}
+
+.cart {
+  background: none;
+  border: 0;
+  padding: 0;
+  i {
+    font-size: 28px;
+  }
+
+  img {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.header_img {
+  display: flex;
+  gap: 1rem;
+  img {
+    width: 4rem;
+    height: 4rem;
+  }
+}
+
+li {
+  a {
+    color: #fff;
+    font-weight: 500;
+    font-size: 1.1em;
+  }
+}
+
+.phrase_container {
+  line-height: 0.5;
+  color: #fff;
+  font-weight: 600;
+  font-size: 3em;
+}
+
+.catch_phrase {
+  color: #d8944b;
+}
+
+.my_title {
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  -webkit-text-stroke: 0.8px #000;
+}
+
+nav {
+  .active {
+    color: #000;
+    font-weight: 600;
+  }
+}
+
+.userName {
+  text-transform: capitalize;
+  font-family: "Inter", sans-serif;
+}
