@@ -1,1 +1,45 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Saira+Condensed:wght@300;400;500;600;700;800&display=swap");
+:root {
+  --card-bg-color: #fff;
+  --card-text-color: #070705;
+  --primary-color: #3a98b9;
+  --secondary-color: #d8944b;
+  --card-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.02),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.028), 0 12.5px 10px rgba(0, 0, 0, 0.035),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.042), 0 41.8px 33.4px rgba(0, 0, 0, 0.05),
+    0 100px 80px rgba(0, 0, 0, 0.07);
+  --global-radius: 16px;
+}
+
+body {
+  background-color: #fffaf1;
+  font-family: "Inter", sans-serif;
+}
+
+.button {
+  font-family: "Saira Condensed", sans-serif;
+  background-color: #d8944b;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  padding: 0.5em 0.8em;
+}
+
+.my_form {
+  width: 50%;
+  max-width: 450px;
+}
+
+@media (width < 50em) {
+  .my_form {
+    width: 75%;
+  }
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 1.5em;
+  flex-wrap: wrap;
+}
