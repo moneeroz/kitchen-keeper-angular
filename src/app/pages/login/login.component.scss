@@ -1,0 +1,42 @@
+.register_link {
+  margin-top: 1.5em;
+
+  p a {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+  }
+
+  p a:hover {
+    color: orange;
+  }
+}
+
+.input_box {
+  border-bottom: 2px solid black;
+  margin-right: 2em;
+
+  input {
+    border: none;
+  }
+
+  .form-control:focus {
+    box-shadow: none;
+  }
+}
+
+.forgot_password {
+  background: none;
+  border: none;
+}
+
+.button_group {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  align-items: center;
+}
+
+[disabled] {
+  color: #ccc;
+}
