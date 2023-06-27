@@ -1,0 +1,26 @@
+<section class="container">
+  <p class="text-center pt-5 pb-4 heading">What do you feel like?</p>
+
+  <div class="cards mb-5">
+    <button class="button" (click)="getRecipesByCategory('chicken')">
+      chicken
+    </button>
+    <button class="button px-3" (click)="getRecipesByCategory('beef')">
+      beef
+    </button>
+    <button class="button" (click)="getRecipesByCategory('seafood')">
+      seafood
+    </button>
+    <button class="button" (click)="getRecipesByCategory('vegetarian')">
+      vegetarian
+    </button>
+  </div>
+
+  <div class="cards">
+    <app-recipe-card
+      *ngFor="let recipe of recipes$ | async"
+      [recipe]="recipe"
+      (viewEvent)="onView($event)"
+    />
+  </div>
+</section>
