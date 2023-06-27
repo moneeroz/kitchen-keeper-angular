@@ -10,10 +10,18 @@
       </div>
 
       <div
+        *ngIf="showFavouriteBtn"
         (click)="addToFavourites(recipe!.id)"
         class="mx-2 rounded-circle p-2 btn"
       >
         <img src="../../../assets/images/heart-regular.svg" alt="" />
+      </div>
+      <div
+        *ngIf="showRemoveBtn"
+        (click)="removeFromFavourites(recipe!.id)"
+        class="mx-2 rounded-circle p-2 btn"
+      >
+        <img src="../../../assets/images/xmark-solid.svg" alt="" />
       </div>
     </div>
   </div>

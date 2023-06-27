@@ -11,6 +11,8 @@ import { FavouriteApiActions } from 'src/store/favourites/favourites.actions';
 })
 export class RecipeCardComponent {
   @Input({ required: true }) recipe?: Irecipe;
+  @Input() showRemoveBtn: boolean = false;
+  @Input() showFavouriteBtn: boolean = true;
   @Input() showCatagory: boolean = true;
 
   @Output() viewEvent = new EventEmitter();
@@ -26,6 +28,12 @@ export class RecipeCardComponent {
   addToFavourites(recipeId: string) {
     this.store.dispatch(
       FavouriteApiActions.addToFavouritesRequest({ recipeId }),
+    );
+  }
+
+  removeFromFavourites(recipeId: string) {
+    this.store.dispatch(
+      FavouriteApiActions.removeFromFavouritesRequest({ recipeId }),
     );
   }
 
