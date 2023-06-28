@@ -21,6 +21,8 @@ import { CustomFilterPipe } from './pipes/custom-filter.pipe';
 import { PipesModule } from './pipes/pipes.module';
 import { CategoriesComponent } from './pages/categories/categories.component';
 import { FavouritesComponent } from './pages/favourites/favourites.component';
+import { ShoppingListComponent } from './pages/shopping-list/shopping-list.component';
+import { RecipeComponent } from './pages/recipe/recipe.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { FavouritesComponent } from './pages/favourites/favourites.component';
     RecipeCardComponent,
     CategoriesComponent,
     FavouritesComponent,
+    ShoppingListComponent,
+    RecipeComponent,
   ],
   imports: [
     BrowserModule,

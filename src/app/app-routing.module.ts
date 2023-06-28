@@ -5,6 +5,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { CategoriesComponent } from './pages/categories/categories.component';
 import { FavouritesComponent } from './pages/favourites/favourites.component';
+import { ShoppingListComponent } from './pages/shopping-list/shopping-list.component';
+import { RecipeComponent } from './pages/recipe/recipe.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/recipes', pathMatch: 'full' },
@@ -13,6 +15,8 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'categories', component: CategoriesComponent },
   { path: 'favourites', component: FavouritesComponent },
+  { path: 'shopping-list', component: ShoppingListComponent },
+  { path: 'recipe/:recipe_id', component: RecipeComponent },
 ];
 
 @NgModule({

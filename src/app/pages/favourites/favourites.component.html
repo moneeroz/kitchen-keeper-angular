@@ -1,7 +1,7 @@
 <section class="container">
   <p class="text-center pt-5 pb-4 heading">Your favourite recipes</p>
 
-  <div class="cards">
+  <div class="cards my-5">
     <app-recipe-card
       *ngFor="let favourite of items$ | async"
       [recipe]="favourite.recipe"

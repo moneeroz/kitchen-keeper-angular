@@ -15,7 +15,7 @@ export class RecipeCardComponent {
   @Input() showFavouriteBtn: boolean = true;
   @Input() showCatagory: boolean = true;
 
-  @Output() viewEvent = new EventEmitter();
+  @Output() viewEvent = new EventEmitter<string>();
 
   constructor(private store: Store) {}
 
