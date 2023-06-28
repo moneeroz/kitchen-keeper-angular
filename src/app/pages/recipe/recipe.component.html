@@ -1,0 +1,41 @@
+<div class="container my-5">
+  <div class="wrapper">
+    <div class="recipe_img position-relative">
+      <img class="img-fluid" src="{{ recipe?.image }}" alt="" />
+
+      <div class="buttons position-absolute end-0 bottom-0 d-inline-flex mb-2">
+        <div (click)="addToCart(recipe?.id!)" class="btn rounded-circle p-2">
+          <img src="../../../assets/images/cart-add.svg" alt="" />
+        </div>
+
+        <div
+          (click)="addToFavourites(recipe?.id!)"
+          class="mx-2 rounded-circle p-2 btn"
+        >
+          <img src="../../../assets/images/heart-regular.svg" alt="" />
+        </div>
+      </div>
+    </div>
+    <div class="recipe_highlights">
+      <p class="fw-bold">{{ recipe?.name }}</p>
+      <p>{{ recipe?.category_id }}</p>
+      <p>prep time: {{ recipe?.prep_time }}</p>
+    </div>
+  </div>
+
+  <section class="content">
+    <div>
+      <h3>Ingredients</h3>
+      <p *ngFor="let item of recipe?.ingredients?.split('\n')">{{ item }}</p>
+    </div>
+
+    <div>
+      <h3>Directions</h3>
+
+      <div *ngFor="let item of recipe?.directions?.split('\n'); let i = index">
+        <p class="h5">Step {{ i + 1 }}</p>
+        <p>{{ item }}</p>
+      </div>
+    </div>
+  </section>
+</div>

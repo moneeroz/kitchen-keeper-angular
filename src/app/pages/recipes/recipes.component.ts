@@ -54,8 +54,6 @@ export class RecipesComponent {
     this.recipeStateSubscription = this.store.select(recipesFeature).subscribe({
       next: (state) => {
         this.toggleLoading(state);
-
-        // this.onError(state);
       },
       // error: (error) => {},
     });
@@ -79,16 +77,4 @@ export class RecipesComponent {
       this.store.dispatch(hide());
     }
   }
-
-  // private async onError(recipeState: IrecipesState) {
-  //   if (recipeState.error) {
-  //     const toast = await this.toastController.create({
-  //       message: recipeState.error,
-  //       duration: 2000,
-  //       position: 'bottom',
-  //       color: 'danger',
-  //     });
-  //     toast.present();
-  //   }
-  // }
 }

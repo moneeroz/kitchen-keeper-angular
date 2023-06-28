@@ -1,0 +1,34 @@
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  align-items: flex-start;
+
+  .recipe_img {
+    flex-basis: 500px;
+    flex-grow: 10;
+    img {
+      width: 100%;
+      border-radius: 8px;
+    }
+  }
+
+  .recipe_highlights {
+    flex-basis: 200px;
+    flex-grow: 1;
+    line-height: 2;
+  }
+}
+
+.content {
+  margin-block: 1em;
+}
+
+.buttons {
+  div {
+    background-color: var(--primary-color);
+    img {
+      width: 1.5em;
+    }
+  }
+}
