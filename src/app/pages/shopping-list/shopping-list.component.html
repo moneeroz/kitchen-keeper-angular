@@ -1,0 +1,54 @@
+<section class="container">
+  <div class="my-5"><p class="text-center heading">Your shopping list</p></div>
+  <div class="cart">
+    <div
+      class="item-card mt-5"
+      *ngFor="let item of items$ | async; let i = index"
+    >
+      <div class="item-card__img">
+        <img src="{{ item?.recipe?.image }}" alt="item card" />
+      </div>
+
+      <div class="item-card__cnt">
+        <div class="item-card__name">{{ item?.recipe?.name }}</div>
+        <div class="accordion accordion-flush" id="accordionFlush">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed fw-bold"
+                type="button"
+                data-bs-toggle="collapse"
+                [attr.data-bs-target]="'#flush-collapse-' + i"
+              >
+                Ingredients
+              </button>
+            </h2>
+            <div
+              [id]="'flush-collapse-' + i"
+              class="accordion-collapse collapse"
+              data-bs-parent="#accordionFlush"
+            >
+              <div class="accordion-body text-start">
+                <p
+                  *ngFor="
+                    let ingrediant of item.recipe?.ingredients?.split('\n')
+                  "
+                >
+                  {{ ingrediant }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="item-card-ctr">
+          <button
+            class="item-card__button button--orange"
+            (click)="deleteFromCart(item.recipeId)"
+          >
+            Remove
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
